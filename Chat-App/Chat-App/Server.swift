@@ -7,5 +7,7 @@
 //
 
 struct Server {
-    static let url = "http://localhost:3000"
+//    static let url = "http://localhost:3000"
+    static let url = "https://br-chat-app.herokuapp.com"
+    
 }
