@@ -3,7 +3,6 @@
 **ChapApp** is a application for learn how to make a Chat with Swift and NodeJS.
 
 <img src="./preview.gif"/>
- //width="200" height="432.85"
 
 ### Dependencies 
 
@@ -24,3 +23,6 @@ $ npm install
 ```shell
 $ npm start
 ```
+
+
+## Thank for watch!
