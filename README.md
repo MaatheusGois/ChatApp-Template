@@ -1,6 +1,6 @@
 # ChatApp
 
-**ChapApp** is a application for learn how to make a Chat with Swift and NodeJS.
+**ChapApp** is a project for learning how to make Chat with Swift and NodeJS.
 
 <img src="./preview.gif"/>
 
