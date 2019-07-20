@@ -1,5 +1,5 @@
 //
-//  MyChatCollectionViewCell.swift
+//  ChatTableViewCell.swift
 //  Chat-App
 //
 //  Created by Matheus Gois on 20/07/19.
@@ -8,8 +8,8 @@
 
 import UIKit
 
-class MyChatCollectionViewCell: UITableViewCell {
+
+class ChatCollectionViewCell: UITableViewCell {
     @IBOutlet weak var titleMsg: UILabel!
     @IBOutlet weak var detailMsg: UILabel!
-    
 }

@@ -4,7 +4,7 @@
 //
 //  Created by Matheus Gois on 19/07/19.
 //  Copyright © 2019 Matheus Gois. All rights reserved.
-//  https://github.com/socketio/socket.io-client-swift
+//  
 
 import UIKit
 
@@ -40,7 +40,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
 
