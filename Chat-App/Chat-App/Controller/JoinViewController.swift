@@ -18,13 +18,21 @@ class JoinViewController: UIViewController {
     //Name TextFild
     @IBOutlet weak var nameUser: UITextField!
     
+    //Alert Label
+    @IBOutlet weak var alertName: UILabel!
+    
     //Join Button
     @IBAction func join(_ sender: Any) {
-        if let nameOfUser = self.nameUser.text {
-            self.socket.emitWithAck("join", nameOfUser).timingOut(after: 1) {
-                data in self.performSegue(withIdentifier: "chatMsg", sender: nil)
+        if nameUser.text != "" {
+            self.showSpinner(onView: self.view)
+            if let nameOfUser = self.nameUser.text {
+                self.socket.emitWithAck("join", nameOfUser).timingOut(after: 1) {
+                    data in
+                    self.removeSpinner()
+                    self.performSegue(withIdentifier: "chatMsg", sender: nil)
+                }
             }
-        }
+        } else { alertName.isHidden = false }
     }
     
     //ViewController
@@ -33,6 +41,21 @@ class JoinViewController: UIViewController {
         socket = manager.defaultSocket
         socket.on(clientEvent: .connect) { data, ack in print("socket connected") }
         socket.connect()
+        
+        //Remove alert
+        setForRemoveAlerts()
+        
+        //Hide Keyboard
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    //Take editing in textfilds
+    func setForRemoveAlerts() {
+        nameUser.addTarget(self, action: #selector(nameDidChange(_:)), for: .editingChanged)
+    }
+    @objc func nameDidChange(_ textField: UITextField) {
+        alertName.isHidden = true
     }
     
     //Prepare
@@ -47,6 +70,15 @@ class JoinViewController: UIViewController {
     
     override var preferredStatusBarStyle : UIStatusBarStyle {
         return .lightContent
+    }
+    
+    //Hide Keyboard
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        view.endEditing(true)
+        return false
     }
 
 }

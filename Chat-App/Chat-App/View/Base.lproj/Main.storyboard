@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Centrale Sans Regular.otf">
+            <string>CentraleSansRegular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Join-->
         <scene sceneID="tne-QT-ifu">
@@ -26,6 +31,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" textContentType="name"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="6ud-Ll-eST"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Twm-zR-rlx" customClass="RoundButton" customModule="Chat_App" customModuleProvider="target">
                                 <rect key="frame" x="40" y="481" width="334" height="57.5"/>
@@ -46,7 +54,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="moQ-gf-8zL">
-                                <rect key="frame" x="40" y="362" width="341.5" height="24"/>
+                                <rect key="frame" x="43" y="362" width="341.5" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="moQ-gf-8zL" secondAttribute="height" multiplier="143:21" constant="178" id="Esx-nf-mIu"/>
                                 </constraints>
@@ -54,14 +62,27 @@
                                 <color key="textColor" red="0.066666666666666666" green="0.098039215686274508" blue="0.20784313725490194" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please, enter a name." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yj8-Iw-taU">
+                                <rect key="frame" x="46" y="429" width="335" height="12"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="335" id="RZk-UT-thv"/>
+                                    <constraint firstAttribute="height" constant="12" id="idR-g3-DSj"/>
+                                    <constraint firstAttribute="width" secondItem="yj8-Iw-taU" secondAttribute="height" multiplier="335:12" id="nVr-LC-03g"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="CentraleSansRegular" family="Centrale Sans Regular" pointSize="12"/>
+                                <color key="textColor" red="0.90196078430000004" green="0.22352941179999999" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.94901960780000005" green="0.93725490199999995" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="yj8-Iw-taU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="46" id="7ns-kX-Tdg"/>
                             <constraint firstItem="96n-Ij-TI3" firstAttribute="top" secondItem="moQ-gf-8zL" secondAttribute="bottom" constant="8" id="DPb-rZ-1er"/>
                             <constraint firstItem="96n-Ij-TI3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="41" id="JYH-r5-r6I"/>
                             <constraint firstItem="Twm-zR-rlx" firstAttribute="top" secondItem="96n-Ij-TI3" secondAttribute="bottom" constant="57" id="LAw-Xl-pSM"/>
                             <constraint firstItem="moQ-gf-8zL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="274" id="U6X-qz-hyg"/>
-                            <constraint firstItem="moQ-gf-8zL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="f9s-ow-O14"/>
+                            <constraint firstItem="yj8-Iw-taU" firstAttribute="top" secondItem="96n-Ij-TI3" secondAttribute="bottom" constant="5" id="Ybd-VO-4Id"/>
+                            <constraint firstItem="moQ-gf-8zL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="43" id="f9s-ow-O14"/>
                             <constraint firstItem="Twm-zR-rlx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="hqf-dg-C0i"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Twm-zR-rlx" secondAttribute="trailing" constant="40" id="oJq-oP-XTR"/>
                         </constraints>
@@ -69,6 +90,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Join" id="Ezf-TZ-NlO"/>
                     <connections>
+                        <outlet property="alertName" destination="yj8-Iw-taU" id="xNZ-TX-iaw"/>
                         <outlet property="nameUser" destination="96n-Ij-TI3" id="hQI-AA-G2t"/>
                         <segue destination="6jy-Oo-iVb" kind="show" identifier="chatMsg" id="3Vx-Pj-2Np"/>
                     </connections>
@@ -220,6 +242,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="6jy-Oo-iVb" id="lgF-7t-AGX"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s85-mv-T2D">
                                 <rect key="frame" x="346" y="810" width="42" height="30"/>
