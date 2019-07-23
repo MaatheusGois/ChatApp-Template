@@ -6,7 +6,8 @@
 
 ### Dependencies 
 
-- [Tutorial](https://medium.com/@danielsternlicht/handling-paypal-ipn-messages-with-nodejs-5ccd97870c4)
+- [socket.io-client-swift](https://github.com/socketio/socket.io-client-swift)
+- [Simple-Chat-Socket.io](https://github.com/dericeira/Simple-Chat-Socket.io)
 
 ### Installing
 
