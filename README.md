@@ -4,7 +4,7 @@
 
 <img src="./preview.gif"/>
 
-### Dependencies 
+### Learn more 
 
 - [socket.io-client-swift](https://github.com/socketio/socket.io-client-swift)
 - [Simple-Chat-Socket.io](https://github.com/dericeira/Simple-Chat-Socket.io)
